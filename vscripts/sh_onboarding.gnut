@@ -147,8 +147,11 @@ void function Sequence_WaitingForPlayers()
 	// Set champion randomly from among all players
 	if ( GetCurrentPlaylistVarBool( "survival_commentary_champion_enabled", true ) )
 	{
-		entity champion = GetPlayerArray().getrandom()
-		SetChampion( champion )
+		if(GetPlayerArray().len())
+		{
+			entity champion = GetPlayerArray().getrandom()
+			SetChampion( champion )
+		}
 	}
 
 	if ( !introCountdownEnabled )
