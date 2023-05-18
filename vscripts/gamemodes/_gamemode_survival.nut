@@ -263,9 +263,15 @@ void function Sequence_Playing()
 	{
 		if ( GetNumTeamsRemaining() <= 1 )
 		{
-			int winnerTeam = GetTeamsForPlayers( GetPlayerArray_AliveConnected() )[0]
-			level.nv.winningTeam = winnerTeam
+			array<int> Teams = GetTeamsForPlayers( GetPlayerArray_AliveConnected() )[0]
 
+			if(winningTeam.len())
+			{
+				int winnerTeam = Teams[0]
+
+				level.nv.winningTeam = winnerTeam
+			}
+			
 			SetGameState( eGameState.WinnerDetermined )
 		}
 		WaitFrame()
